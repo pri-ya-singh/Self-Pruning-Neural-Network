@@ -90,14 +90,6 @@ PrunableLinear (10)
 Output
 ```
 
----
-
-### 🔹 Model Flow Diagram
-
-![Model Architecture](output%20image/download%20\(1\).png)
-
----
-
 ## 🧪 5. Experimental Setup
 
 * Dataset: CIFAR-10
