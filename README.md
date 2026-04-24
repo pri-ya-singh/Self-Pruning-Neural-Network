@@ -22,7 +22,7 @@ Each weight in the network is associated with a **learnable gate parameter**:
 
 ### Mathematical Representation
 
-```id="cy66pw"
+```
 gates = sigmoid(gate_scores)
 pruned_weight = weight × gates
 ```
@@ -49,7 +49,7 @@ During forward pass:
 
 ### 🔹 3.2 Loss Function
 
-```id="0v6w16"
+```
 Total Loss = Classification Loss + λ × Sparsity Loss
 ```
 
@@ -58,7 +58,7 @@ Where:
 * Classification Loss → Cross-Entropy
 * Sparsity Loss → Mean of gate values
 
-```id="5ia2ua"
+```
 Sparsity Loss = mean(gates)
 ```
 
@@ -66,14 +66,13 @@ Sparsity Loss = mean(gates)
 
 ### 🔹 3.3 Why L1 Regularization Encourages Sparsity
 
-👉 Simple explanation:
-The sparsity term penalizes active gates, forcing many of them to shrink toward zero.
+👉 The sparsity term penalizes active gates, forcing many of them to shrink toward zero.
 
 ---
 
 ## 🏗️ 4. Model Architecture
 
-```id="hj5f9j"
+```
 Input (32×32×3)
       ↓
 Flatten
@@ -90,6 +89,12 @@ PrunableLinear (10)
       ↓
 Output
 ```
+
+---
+
+### 🔹 Model Flow Diagram
+
+![Model Architecture](output%20image/download%20\(1\).png)
 
 ---
 
@@ -110,7 +115,9 @@ Output
 
 ---
 
-## 📊 6. Results (output%20image/result.jpeg)
+## 📊 6. Results
+
+![Final Result](output%20image/result.jpeg)
 
 | Lambda (λ) | Test Accuracy (%) | Sparsity Level (%) |
 | ---------- | ----------------- | ------------------ |
@@ -119,20 +126,22 @@ Output
 | 5.0        | 43.67             | 98.71              |
 | 20.0       | 36.46             | 99.69              |
 
-
-
 ---
 
 ## 📈 7. Analysis
 
-### 🔹 Sparsity vs Lambda (output%20image/download%20(1).png)
+### 🔹 Sparsity vs Lambda
+
+![Sparsity Graph](output%20image/download%20\(1\).png)
 
 * Sparsity increases significantly with λ
 * Even at λ = 0.5, over **90% weights are pruned**
 
 ---
 
-### 🔹 Accuracy vs Lambda (output%20image/download.png)
+### 🔹 Accuracy vs Lambda
+
+![Accuracy Graph](output%20image/download.png)
 
 * Accuracy decreases gradually as λ increases
 * High λ removes important connections
@@ -146,13 +155,13 @@ Output
 * **Efficiency (Sparsity ↑)**
 * **Performance (Accuracy ↓)**
 
-👉 λ = 0.5 provides a **better balance** compared to extreme values.
+👉 λ = 0.5 provides a better balance
 
 ---
 
-## 📉 8. Gate Value Distribution (output%20image/download%20(2).png)
+## 📉 8. Gate Value Distribution
 
-The histogram shows:
+![Gate Distribution](output%20image/download%20\(2\).png)
 
 * Large spike near **0 → pruned weights**
 * Small cluster near **1 → important weights**
@@ -163,11 +172,11 @@ The histogram shows:
 
 ## 🔍 9. Where Pruning Happens
 
-```id="4uawb9"
+```
 pruned_weights = weight × gates
 ```
 
-👉 If gate ≈ 0 ⇒ weight ≈ 0 ⇒ connection removed
+👉 If gate ≈ 0 ⇒ connection removed
 
 ---
 
@@ -182,11 +191,9 @@ pruned_weights = weight × gates
 
 ## ✅ 11. Conclusion
 
-* The proposed model effectively learns to prune its own connections
+* The model effectively learns to prune its own connections
 * L1-based sparsity regularization drives pruning
-* There is a clear trade-off between accuracy and sparsity
-* Proper selection of λ is crucial for optimal results
+* Clear trade-off between accuracy and sparsity
+* Proper λ selection is important
 
 ---
-
-
