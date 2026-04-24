@@ -109,8 +109,6 @@ Output
 
 ## 📊 6. Results
 
-![Final Result](output%20image/result.jpeg)
-
 | Lambda (λ) | Test Accuracy (%) | Sparsity Level (%) |
 | ---------- | ----------------- | ------------------ |
 | 0.5        | 48.97             | 92.76              |
