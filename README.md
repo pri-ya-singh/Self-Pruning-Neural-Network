@@ -110,7 +110,7 @@ Output
 
 ---
 
-## 📊 6. Results
+## 📊 6. Results (output%20image/result.jpeg)
 
 | Lambda (λ) | Test Accuracy (%) | Sparsity Level (%) |
 | ---------- | ----------------- | ------------------ |
@@ -119,18 +119,20 @@ Output
 | 5.0        | 43.67             | 98.71              |
 | 20.0       | 36.46             | 99.69              |
 
+
+
 ---
 
 ## 📈 7. Analysis
 
-### 🔹 Sparsity vs Lambda
+### 🔹 Sparsity vs Lambda (output%20image/download%20(1).png)
 
 * Sparsity increases significantly with λ
 * Even at λ = 0.5, over **90% weights are pruned**
 
 ---
 
-### 🔹 Accuracy vs Lambda
+### 🔹 Accuracy vs Lambda (output%20image/download.png)
 
 * Accuracy decreases gradually as λ increases
 * High λ removes important connections
@@ -148,7 +150,7 @@ Output
 
 ---
 
-## 📉 8. Gate Value Distribution
+## 📉 8. Gate Value Distribution (output%20image/download%20(2).png)
 
 The histogram shows:
 
@@ -187,17 +189,4 @@ pruned_weights = weight × gates
 
 ---
 
-## 🚀 12. Future Work
 
-* Use CNN architectures for better accuracy
-* Apply structured pruning
-* Combine pruning with quantization
-* Deploy on edge devices
-
----
-
-## 📌 13. Final Summary
-
-👉 A self-pruning neural network dynamically removes unnecessary connections during training using learnable gates, achieving up to **99% sparsity** while maintaining reasonable accuracy at moderate pruning levels.
-
----
